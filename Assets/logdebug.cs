@@ -37,12 +37,12 @@ public class DebugRealWorldLocation : MonoBehaviour
             Debug.Log($"[{gameObject.name}] Distance to Camera: {distance:F2} units");
         }
 
-#if ARCORE_EXTENSIONS_PRESENT
+        // #if ARCORE_EXTENSIONS_PRESENT
         // Log Geospatial Anchor info if available
         if (geoAnchor != null)
         {
             Debug.Log($"[{gameObject.name}] Geospatial Location: Lat={geoAnchor.Latitude}, Lon={geoAnchor.Longitude}, Alt={geoAnchor.Altitude}");
         }
-#endif
+        // #endif
     }
 }
