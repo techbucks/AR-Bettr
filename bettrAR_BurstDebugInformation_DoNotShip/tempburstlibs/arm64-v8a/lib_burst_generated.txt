@@ -11,7 +11,6 @@ Library: /Users/techbucks/rizwan/AR/bettrAR/Temp/BurstOutput/tempburstlibs/arm64
 --float-mode=Fast
 --generate-link-xml=Temp/burst.link.xml
 --temp-folder=/Users/techbucks/rizwan/AR/bettrAR/Temp/Burst
---debug=Full
 --key-folder=/Applications/Unity/Hub/Editor/6000.1.1f1/PlaybackEngines/AndroidPlayer
 --decode-folder=/Users/techbucks/rizwan/AR/bettrAR/Library/Burst
 --output=/Users/techbucks/rizwan/AR/bettrAR/Temp/BurstOutput/tempburstlibs/arm64-v8a/lib_burst_generated
@@ -29,7 +28,6 @@ Library: /Users/techbucks/rizwan/AR/bettrAR/Temp/BurstOutput/tempburstlibs/arm64
 --target-framework=NetFramework
 --generate-link-xml=Temp/burst.link.xml
 --temp-folder=/Users/techbucks/rizwan/AR/bettrAR/Temp/Burst
---debug=Full
 --key-folder=/Applications/Unity/Hub/Editor/6000.1.1f1/PlaybackEngines/AndroidPlayer
 --decode-folder=/Users/techbucks/rizwan/AR/bettrAR/Library/Burst
 --output=/Users/techbucks/rizwan/AR/bettrAR/Temp/BurstOutput/tempburstlibs/arm64-v8a/lib_burst_generated
