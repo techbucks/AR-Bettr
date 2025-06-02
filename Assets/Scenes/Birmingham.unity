@@ -1046,10 +1046,10 @@ MonoBehaviour:
   _originAuthority: 0
   _latitude: 52.47815
   _longitude: -1.91359
-  _height: 11.5
-  _ecefX: 3890734.456648931
-  _ecefY: -129992.8221410716
-  _ecefZ: 5035393.198894784
+  _height: 0
+  _ecefX: 3890727.456319791
+  _ecefY: -129992.58825398654
+  _ecefZ: 5035384.078001804
   _scale: 1
 --- !u!1 &497697449
 GameObject:
@@ -2927,15 +2927,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7072444061591351794, guid: 910177ec26b76c14996c2d53627a6def, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7072444061591351794, guid: 910177ec26b76c14996c2d53627a6def, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7072444061591351794, guid: 910177ec26b76c14996c2d53627a6def, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7072444061591351794, guid: 910177ec26b76c14996c2d53627a6def, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5244,7 +5244,7 @@ Transform:
   m_GameObject: {fileID: 1936086323}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5741,9 +5741,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _altitudeOffset: NaN
-  _latitude: 52.478150000000014
-  _longitude: -1.9135899999999995
-  _altitude: 192.96000671572983
+  _latitude: 52.47814999998298
+  _longitude: -1.9135900000007198
+  _altitude: 0.00000004190951585769653
   _altitudeType: 1
   _useEditorAltitudeOverride: 0
   _editorAltitudeOverride: 0
@@ -5758,7 +5758,7 @@ Transform:
   m_GameObject: {fileID: 2028164569}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 181.46, z: 0}
+  m_LocalPosition: {x: 2.9908512, y: -14.28588, z: -78.34875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
