@@ -104,76 +104,43 @@ public class DebugRealWorldLocation : MonoBehaviour
 
         while (timer < accuracyStabilizationTime)
         {
-            if (earthManager == null || anchorManager == null || anchorPrefab == null || geoAnchor == null)
-            {
-                Debug.LogError("One or more required components are not assigned or geoAnchor is null.");
-                placementAttemptCoroutine = null; // Reset coroutine
-                yield break;
-            }
-
-            TrackingState earthTracking = earthManager.EarthTrackingState;
-            Debug.Log($"🌍 Earth Tracking State: {earthTracking}");
-
-            if (earthTracking != TrackingState.Tracking)
-            {
-                Debug.Log("Earth tracking is not active. Resetting timer.");
-                timer = 0f; // Reset timer if tracking is lost
-                accuracyMet = false;
-                yield return null; // Wait for next frame
-                continue;
-            }
-
-            GeospatialPose cameraPose = earthManager.CameraGeospatialPose;
-
-            Debug.Log($"Device Geospatial Pose => Lat: {cameraPose.Latitude}, Lon: {cameraPose.Longitude}, Alt: {cameraPose.Altitude}");
-            Debug.Log($"Accuracy => Horizontal: {cameraPose.HorizontalAccuracy:F2}m, Vertical: {cameraPose.VerticalAccuracy:F2}m, Yaw: {cameraPose.OrientationYawAccuracy:F2}°");
-
-            // Check if current accuracy meets thresholds
-            if (cameraPose.HorizontalAccuracy <= horizontalAccuracyThreshold &&
-                cameraPose.VerticalAccuracy <= verticalAccuracyThreshold &&
-                cameraPose.OrientationYawAccuracy <= yawAccuracyThreshold)
-            {
-                if (!accuracyMet) // First time accuracy is met
-                {
-                    Debug.Log($"Accuracy thresholds met. Starting stabilization timer for {accuracyStabilizationTime} seconds.");
-                    accuracyMet = true;
-                }
-                timer += Time.deltaTime;
-            }
-            else
-            {
-                if (accuracyMet) // Accuracy was met, but now it's not
-                {
-                    Debug.Log("Accuracy fell below thresholds. Resetting stabilization timer.");
-                }
-                accuracyMet = false;
-                timer = 0f; // Reset timer if accuracy drops
-            }
-
-            yield return null; // Wait for next frame
+            Debug.LogError("❌ One or more required components are not assigned.");
+            return;
         }
 
-        // If we reach here, accuracy has been stable for the required time
-        if (accuracyMet) // Double-check, though it should be true
+        TrackingState tracking = earthManager.EarthTrackingState;
+        Debug.Log($"🌍 Earth Tracking State: {tracking}");
+
+        if (tracking != TrackingState.Tracking)
         {
-            // Store coordinates before placing anchor
-            placedLatitude = geoAnchor.Latitude;
-            placedLongitude = geoAnchor.Longitude;
-            placedAltitude = geoAnchor.Altitude;
+            Debug.Log("⛔ Earth tracking is not active.");
+            return;
+        }
 
-            // Place the anchor using the *pre-defined* geoAnchor coordinates
-            // and the device's current rotation for orientation.
-            placedGeospatialAnchor = anchorManager.AddAnchor(
-                placedLatitude,
-                placedLongitude,
-                placedAltitude,
-                earthManager.CameraGeospatialPose.EunRotation); // Use current device orientation
+        GeospatialPose pose = earthManager.CameraGeospatialPose;
 
-            if (placedGeospatialAnchor != null)
+        Debug.Log($"📍 Device Geospatial Pose => Lat: {pose.Latitude}, Lon: {pose.Longitude}, Alt: {pose.Altitude}");
+        Debug.Log($"📏 Accuracy => Horizontal: {pose.HorizontalAccuracy}m, Vertical: {pose.VerticalAccuracy}m, Yaw: {pose.OrientationYawAccuracy}°");
+
+        // Accuracy thresholds
+        const float horizontalAccuracyThreshold = 7.0f;
+        const float verticalAccuracyThreshold = 2.0f;
+        const float yawAccuracyThreshold = 5.0f;
+
+        if (pose.HorizontalAccuracy <= horizontalAccuracyThreshold &&
+            pose.VerticalAccuracy <= verticalAccuracyThreshold &&
+            pose.OrientationYawAccuracy <= yawAccuracyThreshold)
+        {
+            ARGeospatialAnchor anchor = anchorManager.AddAnchor(
+                geoAnchor.Latitude,
+                geoAnchor.Longitude,
+                geoAnchor.Altitude,
+                pose.EunRotation);
+
+            if (anchor != null)
             {
-                // Instantiate the prefab as a child of the ARGeospatialAnchor
-                Instantiate(anchorPrefab, placedGeospatialAnchor.transform);
-                Debug.Log($"✅ Anchor successfully placed at Lat: {placedLatitude}, Lon: {placedLongitude}, Alt: {placedAltitude}");
+                Instantiate(anchorPrefab, anchor.transform);
+                Debug.Log($"✅ Anchor placed at Lat: {geoAnchor.Latitude}, Lon: {geoAnchor.Longitude}, Alt: {geoAnchor.Altitude}");
                 anchorPlaced = true;
             }
             else
