@@ -700,19 +700,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 441462, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 441462, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 441462, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 441462, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 145.1
+      value: 21.8
       objectReference: {fileID: 0}
     - target: {fileID: 441462, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -720,7 +720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 441462, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33.7
+      value: 16.7
       objectReference: {fileID: 0}
     - target: {fileID: 441462, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       propertyPath: m_LocalRotation.w
@@ -756,6 +756,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 70718814}
+    - targetCorrespondingSourceObject: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 70718813}
   m_SourcePrefab: {fileID: 100100000, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
 --- !u!4 &70718811 stripped
@@ -780,11 +783,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7b42d9dfa98543a1836b8c6709446cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchorPlacer: {fileID: 70718814}
+  earthManager: {fileID: 145401501}
+--- !u!114 &70718814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70718812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e3d7ec184344d8ea873fbbe5efa26f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   earthManager: {fileID: 145401501}
   anchorManager: {fileID: 145401500}
-  anchorPrefab: {fileID: 193776, guid: edd34a89cfe571f4ca766dcca2459bbe, type: 3}
+  anchorPrefab: {fileID: 70718812}
   geoAnchor: {fileID: 636377776}
-  horizontalAccuracyThreshold: 5
+  horizontalAccuracyThreshold: 2
   verticalAccuracyThreshold: 1.5
   yawAccuracyThreshold: 3
   accuracyStabilizationTime: 2
@@ -799,6 +816,10 @@ PrefabInstance:
     - target: {fileID: 132536, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_Name
       value: IngameDebugConsole
+      objectReference: {fileID: 0}
+    - target: {fileID: 132536, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22400762, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2008,12 +2029,12 @@ MonoBehaviour:
   _ellipsoidOverride: {fileID: 0}
   _originPlacement: 1
   _originAuthority: 0
-  _latitude: 31.46379
-  _longitude: 74.26532
+  _latitude: 31.46979
+  _longitude: 74.2728
   _height: 1
-  _ecefX: 1476681.3364195314
-  _ecefY: 5241281.032056246
-  _ecefZ: 3309863.6250484935
+  _ecefX: 1475902.9408421037
+  _ecefY: 5241139.498509896
+  _ecefZ: 3310431.0582901067
   _scale: 1
 --- !u!114 &298330582
 MonoBehaviour:
@@ -2055,6 +2076,7 @@ GameObject:
   - component: {fileID: 388287385}
   - component: {fileID: 388287384}
   - component: {fileID: 388287383}
+  - component: {fileID: 388287387}
   - component: {fileID: 388287386}
   m_Layer: 0
   m_Name: Cube
@@ -2062,7 +2084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &388287382
 Transform:
   m_ObjectHideFlags: 0
@@ -2072,8 +2094,8 @@ Transform:
   m_GameObject: {fileID: 388287381}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: 37.6, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 636377777}
@@ -2159,13 +2181,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388287381}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7b42d9dfa98543a1836b8c6709446cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchorPlacer: {fileID: 388287387}
   earthManager: {fileID: 145401501}
-  anchorManager: {fileID: 145401500}
+--- !u!114 &388287387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388287381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e3d7ec184344d8ea873fbbe5efa26f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  earthManager: {fileID: 0}
+  anchorManager: {fileID: 0}
   anchorPrefab: {fileID: 388287381}
   geoAnchor: {fileID: 636377776}
   horizontalAccuracyThreshold: 5
@@ -2676,9 +2712,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _altitudeOffset: NaN
-  _latitude: 31.46379000000001
-  _longitude: 74.26532
-  _altitude: 1
+  _latitude: 31.469474336054578
+  _longitude: 74.27316303106876
+  _altitude: 1.0001896359026432
   _altitudeType: 1
   _useEditorAltitudeOverride: 0
   _editorAltitudeOverride: -122.00000000093132
@@ -2693,7 +2729,7 @@ Transform:
   m_GameObject: {fileID: 636377775}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 34.5, y: 0, z: -35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3940,19 +3976,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 458774, guid: 8252519d2c6fd014bb5f75765a8c4fda, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 458774, guid: 8252519d2c6fd014bb5f75765a8c4fda, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 458774, guid: 8252519d2c6fd014bb5f75765a8c4fda, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 458774, guid: 8252519d2c6fd014bb5f75765a8c4fda, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 56.7
+      value: 57.7
       objectReference: {fileID: 0}
     - target: {fileID: 458774, guid: 8252519d2c6fd014bb5f75765a8c4fda, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3960,7 +3996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 458774, guid: 8252519d2c6fd014bb5f75765a8c4fda, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 106
+      value: 37.9
       objectReference: {fileID: 0}
     - target: {fileID: 458774, guid: 8252519d2c6fd014bb5f75765a8c4fda, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3996,6 +4032,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 100720, guid: 8252519d2c6fd014bb5f75765a8c4fda, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1072456819}
+    - targetCorrespondingSourceObject: {fileID: 100720, guid: 8252519d2c6fd014bb5f75765a8c4fda, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1072456818}
   m_SourcePrefab: {fileID: 100100000, guid: 8252519d2c6fd014bb5f75765a8c4fda, type: 3}
 --- !u!4 &1072456816 stripped
@@ -4020,11 +4059,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7b42d9dfa98543a1836b8c6709446cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchorPlacer: {fileID: 1072456819}
+  earthManager: {fileID: 145401501}
+--- !u!114 &1072456819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072456817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e3d7ec184344d8ea873fbbe5efa26f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   earthManager: {fileID: 145401501}
   anchorManager: {fileID: 145401500}
   anchorPrefab: {fileID: 1072456817}
   geoAnchor: {fileID: 636377776}
-  horizontalAccuracyThreshold: 5
+  horizontalAccuracyThreshold: 2
   verticalAccuracyThreshold: 1.5
   yawAccuracyThreshold: 3
   accuracyStabilizationTime: 2
@@ -4979,7 +5032,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 50
+  far clip plane: 100
   field of view: 26.991467
   orthographic: 0
   orthographic size: 5
@@ -4996,7 +5049,7 @@ Camera:
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
-  m_StereoConvergence: 20
+  m_StereoConvergence: 100
   m_StereoSeparation: 0.022
 --- !u!1001 &1458159086
 PrefabInstance:
@@ -6339,15 +6392,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 035a8130f4329504aaa80f75dc72628d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 50.6
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 035a8130f4329504aaa80f75dc72628d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 035a8130f4329504aaa80f75dc72628d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 035a8130f4329504aaa80f75dc72628d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6388,11 +6441,14 @@ PrefabInstance:
     - target: {fileID: -96216609086997662, guid: 035a8130f4329504aaa80f75dc72628d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 839f0768d75404fdb9ca4a4e6ecc0ade, type: 2}
+      objectReference: {fileID: 2100000, guid: da7272eb982174944905bc546feabe8c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 035a8130f4329504aaa80f75dc72628d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2109400567}
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 035a8130f4329504aaa80f75dc72628d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2109400566}
@@ -6419,11 +6475,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7b42d9dfa98543a1836b8c6709446cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchorPlacer: {fileID: 2109400567}
+  earthManager: {fileID: 145401501}
+--- !u!114 &2109400567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109400562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e3d7ec184344d8ea873fbbe5efa26f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   earthManager: {fileID: 145401501}
   anchorManager: {fileID: 145401500}
   anchorPrefab: {fileID: 2109400562}
   geoAnchor: {fileID: 636377776}
-  horizontalAccuracyThreshold: 5
+  horizontalAccuracyThreshold: 2
   verticalAccuracyThreshold: 1.5
   yawAccuracyThreshold: 3
   accuracyStabilizationTime: 2
